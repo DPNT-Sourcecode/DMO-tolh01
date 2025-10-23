@@ -20,5 +20,3 @@ describe('DMO challenge: Demo Round 4 Solution', function() {
         });
     });
 });
-
-
