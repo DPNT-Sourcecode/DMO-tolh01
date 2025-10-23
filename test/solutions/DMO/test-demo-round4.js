@@ -13,11 +13,12 @@ describe('DMO challenge: Demo Round 4 Solution', function() {
 
     describe('waves', function() {
         it('should output waves', async function() {
-            assert.equal(await solution.waves(1), "____....~~~~''''~~~~....____");
-            assert.equal(await solution.waves(3), "_.~'~.__.~'~.__.~'~._");
-            assert.equal(await solution.waves(4), "_.~'~.__.~'~.__.~'~.__.~'~._");
-            assert.equal(await solution.waves(5), "_.~'~.__.~'~.__.~'~.__.~'~.__.~'~._");
+            assert.equal(solution.waves(1), "____....~~~~''''~~~~....____");
+            assert.equal(solution.waves(3), "_.~'~.__.~'~.__.~'~._");
+            assert.equal(solution.waves(4), "_.~'~.__.~'~.__.~'~.__.~'~._");
+            assert.equal(solution.waves(5), "_.~'~.__.~'~.__.~'~.__.~'~.__.~'~._");
         });
     });
 });
+
 
