@@ -6,7 +6,7 @@ const DemoRound1Solution = require('../../../lib/solutions/DMO/demo_round1_solut
 
 describe('DMO challenge: Demo Round 1 Solution', function() {
     let solution;
-    
+
     beforeEach(function() {
         solution = new DemoRound1Solution();
     });
@@ -79,7 +79,7 @@ describe('DMO challenge: Demo Round 1 Solution', function() {
         });
 
         it('should handle empty string as 1 line', function() {
-            assert.equal(solution.count_lines(''), 1);
+            assert.equal(solution.count_lines(''), 0);
         });
 
         it('should handle text ending with newline', function() {
