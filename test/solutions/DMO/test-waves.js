@@ -22,12 +22,17 @@ describe('DMO challenge: Waves characterisation tests', function() {
     };
 
     describe('Waves', function() {
-        it('should output waves', async function() {
-            assert.equal(runWaves(1), "____....~~~~''''~~~~....____");
-            assert.equal(runWaves(3), "_.~'~.__.~'~.__.~'~._");
-            assert.equal(runWaves(4), "_.~'~.__.~'~.__.~'~.__.~'~._");
-            assert.equal(runWaves(5), "_.~'~.__.~'~.__.~'~.__.~'~.__.~'~._");
+        it('original output', async function() {
+            assert.equal(runWaves(-1), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n\n");
+            assert.equal(runWaves(-20), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n\n");
+
+            assert.equal(runWaves(0), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n\n");
+            assert.equal(runWaves(1), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n____....~~~~''''~~~~....____\n");
+            assert.equal(runWaves(2), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n____....~~~~''''~~~~....____\n");
+            assert.equal(runWaves(3), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n____....~~~~''''~~~~....____\n");
+            assert.equal(runWaves(4), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n____....~~~~''''~~~~....____\n");
         });
     });
 });
+
 
