@@ -36,7 +36,7 @@ describe('DMO challenge: Waves characterisation tests', function() {
             assert.equal(await runWaves(7), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n_.~'~.__.~'~.__.~'~.__.~'~.__.~'~.__.~'~.__.~'~._\n");
             assert.equal(await runWaves(8), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n_.~'~.__.~'~.__.~'~.__.~'~.__.~'~.__.~'~.__.~'~.__.~'~._\n");
             for (let i = 9; i <= 20; i++) {
-                assert.equal(await runWaves(i), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n\n", "sdfdsf test for input " + i);
+                assert.equal(await runWaves(i), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n\n");
             }
             assert.equal(await runWaves(99999), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\nINFINITE LOOP DETECTED. STOPPING EXECUTION.\n");
 
@@ -50,6 +50,7 @@ describe('DMO challenge: Waves characterisation tests', function() {
         });
     });
 });
+
 
 
 
