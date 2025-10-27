@@ -33,4 +33,3 @@ exec "$JAVA_BIN"                    \
   "--store" "${PARAM_STORE_DIR}"    \
   "--sourcecode" "${PARAM_SOURCECODE_DIR}" \
   $EXTRA_ARGS "$@"
-

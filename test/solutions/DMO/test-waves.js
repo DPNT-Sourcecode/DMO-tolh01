@@ -50,7 +50,3 @@ describe('DMO challenge: Waves characterisation tests', function() {
         });
     });
 });
-
-
-
-
