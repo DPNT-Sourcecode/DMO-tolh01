@@ -11,34 +11,34 @@ describe('DMO challenge: Waves characterisation tests', function() {
         solution = new waves.Main();
     });
 
-    const runWaves = (numWaves) => {
+    const runWaves = async (numWaves) => {
         const outputSink = new waves.StringOutputSink();
         const inputProvider = {
-            fetch: () => numWaves,
+            fetch: () => Promise.resolve(numWaves),
             close: () => {}
         }
-        solution.run(outputSink, inputProvider);
+        await solution.run(outputSink, inputProvider);
         return outputSink.content();
     };
 
     describe('Waves', function() {
-        it('original output', async function() {
-            assert.equal(runWaves(-1), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n\n");
-            assert.equal(runWaves(-20), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n\n");
+        it('original output with async I/O', async function() {
+            assert.equal(await runWaves(-1), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n\n");
+            assert.equal(await runWaves(-20), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n\n");
 
-            assert.equal(runWaves(0), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n\n");
-            assert.equal(runWaves(1), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n____....~~~~''''~~~~....____\n");
-            assert.equal(runWaves(2), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n__..~~''~~..____..~~''~~..__\n");
-            assert.equal(runWaves(3), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n_.~'~.__.~'~.__.~'~._\n");
-            assert.equal(runWaves(4), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n_.~'~.__.~'~.__.~'~.__.~'~._\n");
-            assert.equal(runWaves(5), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n_.~'~.__.~'~.__.~'~.__.~'~.__.~'~._\n");
-            assert.equal(runWaves(6), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n_.~'~.__.~'~.__.~'~.__.~'~.__.~'~.__.~'~._\n");
-            assert.equal(runWaves(7), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n_.~'~.__.~'~.__.~'~.__.~'~.__.~'~.__.~'~.__.~'~._\n");
-            assert.equal(runWaves(8), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n_.~'~.__.~'~.__.~'~.__.~'~.__.~'~.__.~'~.__.~'~.__.~'~._\n");
+            assert.equal(await runWaves(0), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n\n");
+            assert.equal(await runWaves(1), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n____....~~~~''''~~~~....____\n");
+            assert.equal(await runWaves(2), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n__..~~''~~..____..~~''~~..__\n");
+            assert.equal(await runWaves(3), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n_.~'~.__.~'~.__.~'~._\n");
+            assert.equal(await runWaves(4), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n_.~'~.__.~'~.__.~'~.__.~'~._\n");
+            assert.equal(await runWaves(5), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n_.~'~.__.~'~.__.~'~.__.~'~.__.~'~._\n");
+            assert.equal(await runWaves(6), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n_.~'~.__.~'~.__.~'~.__.~'~.__.~'~.__.~'~._\n");
+            assert.equal(await runWaves(7), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n_.~'~.__.~'~.__.~'~.__.~'~.__.~'~.__.~'~.__.~'~._\n");
+            assert.equal(await runWaves(8), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n_.~'~.__.~'~.__.~'~.__.~'~.__.~'~.__.~'~.__.~'~.__.~'~._\n");
             for (let i = 9; i <= 20; i++) {
-                assert.equal(runWaves(i), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n\n", "sdfdsf test for input " + i);
+                assert.equal(await runWaves(i), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n\n", "sdfdsf test for input " + i);
             }
-            assert.equal(runWaves(99999), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\nINFINITE LOOP DETECTED. STOPPING EXECUTION.\n");
+            assert.equal(await runWaves(99999), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\nINFINITE LOOP DETECTED. STOPPING EXECUTION.\n");
 
         });
 
@@ -50,5 +50,6 @@ describe('DMO challenge: Waves characterisation tests', function() {
         });
     });
 });
+
 
 
