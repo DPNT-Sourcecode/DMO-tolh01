@@ -41,6 +41,14 @@ describe('DMO challenge: Waves characterisation tests', function() {
             assert.equal(runWaves(99999), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\nINFINITE LOOP DETECTED. STOPPING EXECUTION.\n");
 
         });
+
+        it('can create waves without need for I/O', async function() {
+            assert.equal(solution.makeWaves(1), "____....~~~~''''~~~~....____");
+            assert.equal(solution.makeWaves(3), "_.~'~.__.~'~.__.~'~._");
+            assert.equal(solution.makeWaves(4), "_.~'~.__.~'~.__.~'~.__.~'~._");
+            assert.equal(solution.makeWaves(5), "_.~'~.__.~'~.__.~'~.__.~'~.__.~'~._");
+        });
     });
 });
+
 
