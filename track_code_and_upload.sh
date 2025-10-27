@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 SCRIPT_CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+echo $SCRIPT_CURRENT_DIR
 
 JAR_FILE="${SCRIPT_CURRENT_DIR}/track/jar/track-code-and-upload.jar"
 PARAM_CONFIG_FILE="${SCRIPT_CURRENT_DIR}/config/credentials.config"
