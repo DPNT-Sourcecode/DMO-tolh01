@@ -38,6 +38,9 @@ describe('DMO challenge: Waves characterisation tests', function() {
             for (let i = 9; i <= 20; i++) {
                 assert.equal(runWaves(i), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\n\n", "sdfdsf test for input " + i);
             }
+            assert.equal(runWaves(99999), "WAVES\nTYPE IN HOW MANY WAVES TO DRAW AS A NUMBER BETWEEN 1 AND 4?\n\nINFINITE LOOP DETECTED. STOPPING EXECUTION.\n");
+
         });
     });
 });
+
